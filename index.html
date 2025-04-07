@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Web Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>Contact List</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Mobile</th>
+      <th>Email</th>
+    </tr>
+    <tr>
+      <td>Jay Lewis</td>
+      <td>183 Street, ATL</td>
+      <td>+1 234 876 903</td>
+      <td>jay@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Mary Jane</td>
+      <td>746 Street, CA</td>
+      <td>+1 456 654 671</td>
+      <td>mary@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Mike Johnson</td>
+      <td>789 Blvd, TX</td>
+      <td>+1 555 666 777</td>
+      <td>mike@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Lisa Brown</td>
+      <td>321 Lane, FL</td>
+      <td>+1 123 987 654</td>
+      <td>lisa@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Dennis Clark</td>
+      <td>2 Street Broadway, GH</td>
+      <td>+233 50 733 4712</td>
+      <td>dclark@gmail.com</td>
+    </tr>
+  </table>
+
+  <h2>Registration Form</h2>
+  <form id="registration-form">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <label for="mobile">Number:</label>
+    <input type="text" id="mobile" name="mobile" placeholder="Enter your number" required>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <fieldset>
+      <legend>Preferred Contact Method:</legend>
+      <label><input type="radio" name="contact" value="email" required> Email</label>
+      <label><input type="radio" name="contact" value="phone"> Phone</label>
+    </fieldset>
+
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="updates" required> Receive Updates</label>
+      <label><input type="checkbox" name="terms" required> Agree to Terms & Conditions</label>
+    </div>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <h2>Interactive Content</h2>
+  <p id="dynamic-text">PLP IS GREAT</p>
+  <button id="change-text-btn">Change Text</button>
+  <button id="change-style-btn">Change Style</button>
+
+
+  <script>
+    document.getElementById("change-text-btn").addEventListener("click", function() {
+      document.getElementById("dynamic-text").textContent = "I want to be very good at this web development thing";
+    });
+
+    document.getElementById("change-style-btn").addEventListener("click", function() {
+      const dynamicText = document.getElementById("dynamic-text");
+      dynamicText.style.color = "red";
+      dynamicText.style.fontSize = "24px";
+    });
+
+
+    document.getElementById("registration-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const mobile = document.getElementById("mobile").value;
+      const dob = document.getElementById("dob").value;
+
+     
+      if (!name || !email || !mobile || !dob) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      alert("Registration Successful!");
+     
+    });
+  </script>
+
+</body>
+</html>
